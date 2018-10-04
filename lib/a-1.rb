@@ -3,16 +3,27 @@
 # fill in the consecutive set.
 
 def missing_numbers(nums)
-
+  min_num = nums.min
+  max_num = nums.max
+  (min_num...max_num).to_a.delete_if{|el| nums.include?(el)}
 end
 
 # Write a method that returns the nth prime number
 def nth_prime(n)
-
+  return nil if n == 0
+  count = 0
+  i = 1
+  while count < n
+    i += 1
+    if is_prime?(i)
+      count += 1
+    end
+  end
+  i
 end
 
 def is_prime?(num)
-
+  (2...num).count {|x| num % x == 0} == 0
 end
 
 class Hash
